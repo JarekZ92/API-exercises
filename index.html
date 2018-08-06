@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My weather</title>
+</head>
+
+<body>
+
+    <div>
+        Temperature in
+        <span class="city"></span>:
+        <span class="temp"></span>
+
+    </div>
+
+
+
+    <script type="text/javascript">
+        fetch('//api.openweathermap.org/data/2.5/weather?q=Lublin&APPID=0b3d75e5a49f2a267f054a0a60bed6f3')
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector('.city').innerText = data.name
+                document.querySelector('.temp').innerText = data.main.temp
+            })
+
+
+
+    </script>
+</body>
+
+</html>
